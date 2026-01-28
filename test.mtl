@@ -1,0 +1,3 @@
+func mantel_main() {
+    print "Hello from Mantel"
+}
