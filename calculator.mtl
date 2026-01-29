@@ -1,0 +1,134 @@
+// ========================================
+// Mantel Calculator v1.0
+// A simple calculator with basic operations
+// Works with Mantel Compiler v0.4.1+
+// ========================================
+
+func mantel_main() {
+    var running = 1;
+    var choice = 0;
+    var num1 = 0;
+    var num2 = 0;
+    var result = 0;
+    
+    println "Welcome to Mantel Calculator!";
+    println "";
+    
+    while (running) {
+        // Show menu
+        println "============================";
+        println "    MANTEL CALCULATOR";
+        println "============================";
+        println "1. Addition (+)";
+        println "2. Subtraction (-)";
+        println "3. Multiplication (*)";
+        println "4. Division (/)";
+        println "5. Modulo (%)";
+        println "0. Exit";
+        println "============================";
+        println "";
+        
+        print "Enter your choice (0-5): ";
+        choice = read_int();
+        
+        // Exit
+        if (choice == 0) {
+            println "";
+            println "Thank you for using Mantel Calculator!";
+            println "Goodbye!";
+            running = 0;
+        }
+        
+        // Valid operations
+        if (choice >= 1) {
+            if (choice <= 5) {
+                println "";
+                print "Enter first number: ";
+                num1 = read_int();
+                
+                print "Enter second number: ";
+                num2 = read_int();
+                
+                println "";
+                
+                // Addition
+                if (choice == 1) {
+                    result = num1 + num2;
+                    print num1;
+                    print " + ";
+                    print num2;
+                    print " = ";
+                    println result;
+                }
+                
+                // Subtraction
+                if (choice == 2) {
+                    result = num1 - num2;
+                    print num1;
+                    print " - ";
+                    print num2;
+                    print " = ";
+                    println result;
+                }
+                
+                // Multiplication
+                if (choice == 3) {
+                    result = num1 * num2;
+                    print num1;
+                    print " * ";
+                    print num2;
+                    print " = ";
+                    println result;
+                }
+                
+                // Division
+                if (choice == 4) {
+                    if (num2 == 0) {
+                        println "ERROR: Division by zero!";
+                    } else {
+                        result = num1 / num2;
+                        print num1;
+                        print " / ";
+                        print num2;
+                        print " = ";
+                        println result;
+                    }
+                }
+                
+                // Modulo
+                if (choice == 5) {
+                    if (num2 == 0) {
+                        println "ERROR: Modulo by zero!";
+                    } else {
+                        result = num1 % num2;
+                        print num1;
+                        print " % ";
+                        print num2;
+                        print " = ";
+                        println result;
+                    }
+                }
+                
+                println "";
+                println "Press Enter to continue...";
+                var dummy = input();
+                println "";
+            }
+        }
+        
+        // Invalid choice
+        if (choice < 0) {
+            println "";
+            println "Invalid choice! Please enter 0-5.";
+            println "";
+        }
+        
+        if (choice > 5) {
+            println "";
+            println "Invalid choice! Please enter 0-5.";
+            println "";
+        }
+    }
+    
+    return 0;
+}
